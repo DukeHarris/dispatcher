@@ -30,7 +30,6 @@ USER hyrise
 
 WORKDIR /home/hyrise/dispatcher
 
-RUN g++ --version
 RUN make
 
 WORKDIR /home/hyrise/
