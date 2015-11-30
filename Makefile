@@ -1,5 +1,5 @@
 OBJS = Dispatcher.o jsoncpp.o RoundRobinDistributor.o StreamDistributor.o Host.o HttpRequest.o HttpResponse.o
-CXX = g++-5
+CXX = g++
 CXXFLAGS = -Wall -std=c++11 -pthread -O3 -lpthread
 INCLUDEPATHS = ./jsoncpp
 

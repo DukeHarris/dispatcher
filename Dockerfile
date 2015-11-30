@@ -10,7 +10,8 @@ RUN apt-get update \
 		build-essential \
 		g++-5 \
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+	&& update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 60
 
 
 # Set up my user
@@ -18,8 +19,8 @@ RUN useradd hyrise -u 1000 -s /bin/bash -m \
 	&& gpasswd -a hyrise sudo \
 	&& echo 'hyrise:hyrise123' | chpasswd
 
-RUN locale-gen en_US en_US.UTF-8
-RUN dpkg-reconfigure locales
+RUN locale-gen en_US en_US.UTF-8 \
+	&& dpkg-reconfigure locales
 
 WORKDIR /home/hyrise
 
